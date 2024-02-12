@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Student">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="StudntCtrl">
+        name: <input type="text" ng-model="n">
+        cgpa : <input type="number" ng-model="c" ng-min="1" ng-max="10">
+        <button ng-click="append()">Add</button>
+        <br>
+        <ul>
+            <li ng-repeat="i in students">
+                {{i.name}} cgpa {{i.cgpa}}
+            </li>            
+        </ul>
+    </div>
+    <script>
+        var app=angular.module("Student",[]);
+        app.controller("StudntCtrl",function($scope){
+            $scope.students=[];
+            $scope.append=function(){
+                $scope.students.push({
+                    name:$scope.n,
+                    cgpa:$scope.c
+                });
+                $scope.n="";
+                $scope.c="";
+            };
+        });
+    </script>
+</body>
+</html>

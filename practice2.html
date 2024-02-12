@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShopApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <li ng-repeat="i in items">
+            {{i}}
+            <button ng-click="remove($index)">remove</button>
+        </li>
+        <br>
+        <br>
+        <input type="text" ng-model="item" placeholder="Enter Shop item" >
+        <button ng-click="additem()">Add</button>
+    </div>
+    <script>
+        var app=angular.module("ShopApp",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.items=["a","b","c","d"];
+            $scope.remove=function(index){
+                $scope.items.splice(index,1);
+            }
+            $scope.additem=function(){
+                if($scope.item!==null){
+                    $scope.items.push($scope.item);
+            }
+        }}
+        );
+    </script>
+</body>
+</html>

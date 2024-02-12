@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="name">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        first name : <input type="text" ng-model="fname">
+        <br>
+        <br>
+        last name : <input type="text" ng-model="lname">
+        <br>
+        <br>
+        <button ng-click="join()">join</button>
+        <br>
+        <br>
+        <p>full name : {{fullname}}</p>
+    </div>
+    <script>
+        var app=angular.module("name",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.join=function(){
+                $scope.fullname=$scope.fname+$scope.lname;
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

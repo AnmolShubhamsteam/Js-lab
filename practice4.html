@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Math">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="MathCtrl">
+        <input type="text" placeholder="Enter A Number" ng-model="num">&nbsp;
+        <button ng-click="fact()">Factorial</button>
+        <button ng-click="sq()">Square</button>
+        <p>Factorial: {{Factorial}}</p>
+        <p>Square:{{Square}}</p>
+    </div>
+    <script>
+        var app=angular.module("Math",[]);
+        app.controller("MathCtrl",function($scope){
+            $scope.fact=function(){
+                if($scope.num>0){
+                    $scope.Factorial=1;
+                    for(var i=2;i<=$scope.num;i++){
+                        $scope.Factorial=$scope.Factorial*i;
+                    }
+                }
+            }
+            $scope.sq=function(){
+                $scope.Square=$scope.num*$scope.num;
+            }
+        });
+    </script>
+</body>
+</html>

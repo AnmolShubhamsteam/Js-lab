@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Js</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <p>
+            Enter item
+            <input type="text" ng-model="a">
+            <button ng-click="add()">add</button>
+        </p>
+        <ul>
+            <li ng-repeat="i in arr">
+                {{i}}
+                <button ng-click="pop()">pop</button>
+            </li>
+        </ul>
+        <p>
+            total = {{arr.length}}
+        </p>
+    </div>
+    <script>
+        var app=angular.module("App",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.arr=["item1","item2"];
+            $scope.add=function(){
+                $scope.arr.push($scope.a);
+            }
+            $scope.pop=function(index){
+                $scope.arr.splice(index,1);
+            }
+        });
+    </script>
+</body>
+</html>

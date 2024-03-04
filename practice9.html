@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Js</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        name:
+        <input type="text" ng-model="n">
+        salary:
+        <input type="number" ng-model="s">
+        <ul>
+            <li ng-repeat="i in arr | filter:{name:n,salary:s}">
+                {{i.name}}  -  {{i.salary}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app=angular.module("App",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.arr=[{name:"abc",salary:10000},
+        {name:"wxy",salary:200000}];
+        });
+    </script>
+</body>
+</html>

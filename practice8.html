@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>JS</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        username:
+        <input type="text" ng-model="u">
+        <br>
+        password:
+        <input type="password" ng-model="p">
+        <button ng-click="login()">login</button>
+    </div>
+    <script>
+        var app=angular.module("App",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.login=function(){
+                if($scope.u==="abc" && $scope.p==="abc"){
+                    alert("login");
+                }
+                else{
+                    alert("-1");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

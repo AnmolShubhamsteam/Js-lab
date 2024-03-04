@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Js</title>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <ul>
+            <li ng-repeat="i in arr">
+                {{i}}
+            </li>
+        </ul>
+        <ul>
+            <li ng-repeat="i in arr">
+                {{i | uppercase}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app=angular.module("App",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.arr=["a","b"];
+        });
+    </script>
+</body>
+</html>

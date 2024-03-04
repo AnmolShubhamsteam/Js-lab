@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="Ctrl">
+        <form ng-submit="append()">
+            name:
+            <input type="text" ng-model="n">
+            <br>
+            age:
+            <input type="number" ng-model="a">
+            <br>
+            email:
+            <input type="email" ng-model="e">
+            <button type="submit">append</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        email
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in arr">
+                    <th>
+                        {{i.name}}
+                    </th>
+                    <th>
+                        {{i.age}}
+                    </th>
+                    <th>
+                        {{i.email}}
+                    </th>
+                    <th>
+                        <button ng-click="edit($index)">edit</button>
+                        <button ng-click="pop($index)">pop</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var app=angular.module("App",[]);
+        app.controller("Ctrl",function($scope){
+            $scope.arr=[
+                {name:"abc",age:"20",email:"123@gmail.com"},
+                {name:"abc2",age:"22",email:"1234@gmail.com"}
+        ];
+        $scope.edit=function(index){
+            var newName=prompt("Name",$scope.arr[index].name);
+            $scope.arr[index].name=newName;
+            var newAge=prompt("Age",$scope.arr[index].age);
+            $scope.arr[index].age=newAge;
+            var newEmail=prompt("Email",$scope.arr[index].email);
+            $scope.arr[index].email=newEmail;
+        };
+        $scope.pop=function(index){
+            $scope.arr.splice(index,1);
+        };
+        $scope.append=function(){
+            $scope.arr.push({name:$scope.n,age:$scope.a,email:$scope.e})
+        }
+        });
+    </script>
+</body>
+</html>
